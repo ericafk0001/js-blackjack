@@ -1,0 +1,31 @@
+#game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#draw-deck-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#draw-deck-container img {
+  width: 150px;
+  box-shadow: 0 0 16px rgb(0, 0, 0);
+  transition: all 0.25s;
+}
+
+#draw-deck-container img:hover {
+  transform: translateY(-1vh) scale(1.1);
+  box-shadow: 0 0 16px rgb(156, 156, 156);
+}
+
+#draw-deck-container p {
+  text-align: center;
+  margin-bottom: 1vh;
+  font-weight: bold;
+  font-size: 2rem;
+}

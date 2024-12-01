@@ -4,10 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blackjack</title>
-    <link rel="stylesheet" href="cards-ie.css" />
-    <link rel="stylesheet" href="cards-ie9.css" />
-    <link rel="stylesheet" href="cards.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="game.css" />
   </head>
   <body>
     <!--
@@ -19,14 +17,11 @@
     </div>
     -->
     <div id="game">
-      <div
-        class="playingCards fourColours faceImages simpleCards inText rotateHand"
-      >
-        <label for="c-2D" class="card rank-2 diams">
-          <span class="rank">2</span>
-          <span class="suit">&diams;</span>
-          <input type="checkbox" name="c-2D" id="c-2D" value="select" />
-        </label>
+      <div id="player-hand"></div>
+      <div id="bot-hand"></div>
+      <div id="draw-deck-container">
+        <p>Draw Deck</p>
+        <img src="card back red.png" id="deck" />
       </div>
     </div>
     <script src="script.js"></script>
