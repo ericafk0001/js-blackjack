@@ -10,4 +10,33 @@
 
 body {
   font-family: "Inter", Arial, Helvetica, sans-serif;
+  color: black;
+  background-color: #006400;
+  background-image: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.1) 25%,
+      transparent 25%
+    ),
+    radial-gradient(circle, rgba(0, 0, 0, 0.1) 25%, transparent 25%);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  font-family: "Arial", sans-serif;
+  color: #fff;
+  margin: 0;
+  height: 100vh;
+}
+
+#main-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#main-menu h1 {
+  color: rgb(211, 211, 1);
+}
+
+#singleplayer-btn,
+#multiplayer-btn {
+  padding: 10px;
 }
