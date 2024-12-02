@@ -15,12 +15,17 @@
 #draw-deck-container img {
   width: 150px;
   box-shadow: 0 0 16px rgb(0, 0, 0);
-  transition: all 0.25s;
+  border-radius: 5px;
+  transition: all 0.2s;
 }
 
 #draw-deck-container img:hover {
-  transform: translateY(-1vh) scale(1.1);
+  transform: scale(1.1);
   box-shadow: 0 0 16px rgb(156, 156, 156);
+}
+
+#draw-deck-container img:active {
+  opacity: 0.15;
 }
 
 #draw-deck-container p {
@@ -28,4 +33,38 @@
   margin-bottom: 1vh;
   font-weight: bold;
   font-size: 2rem;
+}
+
+#player-hand {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.player-hand-card {
+  width: 140px;
+  margin-left: -20px;
+  margin-bottom: 2vh;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.548);
+  transition: all 0.1s;
+}
+
+.player-hand-card:hover {
+  transform: translateY(-1vh);
+}
+
+#bot-hand {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.bot-hand-card {
+  width: 140px;
+  margin-left: 8px;
+  margin-top: 2vh;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.452);
+  cursor: not-allowed;
 }

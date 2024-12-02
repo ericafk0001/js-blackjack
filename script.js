@@ -1,13 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   // const mainMenu = document.getElementById("main-menu");
   // const singleplayerBtn = document.getElementById("singleplayer-btn");
-  // function startGame() {
-  //   const fadeScreen = document.getElementById("fade-screen");
-  //   fadeScreen.style.display = "block";
-  //   setTimeout(() => {
-  //     fadeScreen.classList.add("fade-in");
-  //   }, 8);
-  // }
   // singleplayerBtn.addEventListener("click", function () {
   //   mainMenu.style.display = "none";
   //   startGame();
@@ -75,21 +68,67 @@ document.addEventListener("DOMContentLoaded", function () {
     "king_of_spades",
     "ace_of_spades",
   ];
-
   shuffleDeck(deck);
+
+  function startGame() {
+    // const fadeScreen = document.getElementById("fade-screen");
+    // fadeScreen.style.display = "block";
+    // setTimeout(() => {
+    //   fadeScreen.classList.add("fade-in");
+    // }, 8);
+
+    // game logic
+    const startingCard = deck.pop();
+    const startingCard2 = deck.pop();
+    const playerHand = document.getElementById("player-hand");
+    const cardImg = document.createElement("img");
+    const cardImg2 = document.createElement("img");
+    cardImg.src = `cards/${startingCard}.png`;
+    cardImg2.src = `cards/${startingCard2}.png`;
+    cardImg.classList.add("player-hand-card");
+    cardImg2.classList.add("player-hand-card");
+    playerHand.appendChild(cardImg);
+    playerHand.appendChild(cardImg2);
+    playerCards.push(startingCard);
+    playerCards.push(startingCard2);
+
+    const botStartingCard = deck.pop();
+    const botStartingCard2 = deck.pop();
+    const botHand = document.getElementById("bot-hand");
+    const botCardImg = document.createElement("img");
+    const botCardImg2 = document.createElement("img");
+    botCardImg.src = `cards/${botStartingCard}.png`;
+    botCardImg2.src = `card back red.png`;
+    botCardImg.classList.add("bot-hand-card");
+    botCardImg2.classList.add("bot-hand-card");
+    botHand.appendChild(botCardImg);
+    botHand.appendChild(botCardImg2);
+    botCards.push(botStartingCard);
+    botCards.push(botStartingCard2);
+  }
+
   //game variables
+  let wallet = 100;
   let playerCards = [];
+  let botCards = [];
   //game constants
   const drawDeck = document.getElementById("deck");
-  const playerHand = document.getElementsByName("player-hand");
 
   drawDeck.addEventListener("click", function () {
     if (deck.length > 0) {
       const drawnCard = deck.pop();
+      const playerHand = document.getElementById("player-hand");
+      const botHand = document.getElementById("bot-hand");
+      const cardImg = document.createElement("img");
+      cardImg.src = `cards/${drawnCard}.png`;
+      cardImg.classList.add("player-hand-card");
+      playerHand.appendChild(cardImg);
       playerCards.push(drawnCard);
-      console.log(playerCards);
     } else {
+      drawDeck.style.display = "none";
       alert(" no mo cards ");
     }
   });
+
+  startGame();
 });
