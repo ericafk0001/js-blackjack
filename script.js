@@ -70,6 +70,38 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
   shuffleDeck(deck);
 
+  let cardValues = {};
+  deck.forEach((card) => {
+    let cardParts = card.split("_");
+    let cardValue = cardParts[0];
+
+    if (cardValue === "jack" || cardValue === "queen" || cardValue === "king") {
+      cardValues[card] = 10;
+    } else if (cardValue === "ace") {
+      cardValues[card] = 11;
+    } else {
+      cardValues[card] = parseInt(cardValue); // For numbered cards, set their value
+    }
+  });
+
+  function calculateHandValue(hand) {
+    let totalValue = 0;
+    let aceCount = 0;
+
+    hand.forEach((card) => {
+      totalValue += cardValues[card];
+      if (card.includes("ace")) {
+        aceCount++;
+      }
+    });
+
+    while (totalValue > 21 && aceCount > 0) {
+      totalValue -= 10;
+      aceCount--;
+    }
+
+    return totalValue;
+  }
   function startGame() {
     // const fadeScreen = document.getElementById("fade-screen");
     // fadeScreen.style.display = "block";
@@ -101,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
     botCardImg2.src = `card back red.png`;
     botCardImg.classList.add("bot-hand-card");
     botCardImg2.classList.add("bot-hand-card");
+    botCardImg2.style.borderRadius = "5px";
     botHand.appendChild(botCardImg);
     botHand.appendChild(botCardImg2);
     botCards.push(botStartingCard);
@@ -113,17 +146,19 @@ document.addEventListener("DOMContentLoaded", function () {
   let botCards = [];
   //game constants
   const drawDeck = document.getElementById("deck");
-
+  //hit
   drawDeck.addEventListener("click", function () {
     if (deck.length > 0) {
       const drawnCard = deck.pop();
       const playerHand = document.getElementById("player-hand");
       const botHand = document.getElementById("bot-hand");
       const cardImg = document.createElement("img");
+      const totalValue = calculateHandValue(playerCards);
       cardImg.src = `cards/${drawnCard}.png`;
       cardImg.classList.add("player-hand-card");
       playerHand.appendChild(cardImg);
       playerCards.push(drawnCard);
+      console.log(totalValue);
     } else {
       drawDeck.style.display = "none";
       alert(" no mo cards ");
