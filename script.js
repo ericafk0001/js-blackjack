@@ -180,6 +180,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const botHit = deck.pop();
       botCards.push(botHit);
       var { totalValue: botValue, aceCount } = calculateHandValue(botCards);
+      
+      const botHand = document.getElementById("bot-hand");
+      const botCardImg = document.createElement("img");
+      botCardImg.src = `cards/${botHit}.png`;
+      botCardImg.classList.add("bot-hand-card");
+      botHand.appendChild(botCardImg);
+      botCards.push(botHIt);
     }
     if (botValue === 17 && aceCount > 0) {
       const botHit = deck.pop();
