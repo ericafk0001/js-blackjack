@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
       aceCount--;
     }
 
-    return totalValue;
+    return { totalValue, aceCount };
   }
   function startGame() {
     // const fadeScreen = document.getElementById("fade-screen");
@@ -153,17 +153,47 @@ document.addEventListener("DOMContentLoaded", function () {
       const playerHand = document.getElementById("player-hand");
       const botHand = document.getElementById("bot-hand");
       const cardImg = document.createElement("img");
-      const totalValue = calculateHandValue(playerCards);
       cardImg.src = `cards/${drawnCard}.png`;
       cardImg.classList.add("player-hand-card");
       playerHand.appendChild(cardImg);
       playerCards.push(drawnCard);
+      //calculate
+      const { totalValue } = calculateHandValue(playerCards);
       console.log(totalValue);
+      if (totalValue > 21) {
+        alert("you lost lil bro quit gambling");
+      } else if (totalValue === 21) {
+        alert("you win baby");
+      }
     } else {
       drawDeck.style.display = "none";
       alert(" no mo cards ");
     }
   });
 
+  const stand = document.getElementById("stand-container");
+  stand.addEventListener("click", function () {
+    const { totalValue: botValue, aceCount } = calculateHandValue(botCards);
+    const { totalValue: playerValue } = calculateHandValue(playerCards);
+
+    while (botValue < 17) {
+      const botHit = deck.pop();
+      botCards.push(botHit);
+      const { totalValue: botValue, aceCount } = calculateHandValue(botCards);
+    }
+    if (botValue === 17 && aceCount > 0) {
+      const botHit = deck.pop();
+      botCards.push(botHit);
+    } else if (botValue > 21) {
+      alert("yo u win thats so cool");
+    } else if (botValue > playerValue) {
+      alert("you lose broke bitch ass boy");
+    } else if (botValue < playerValue) {
+      alert("yo u win this time (bot value is less than playervalue)");
+    } else if (botValue === playerValue) {
+      alert("you get your money back lil bro cause u tied n shi");
+    }
+    console.log(`Bot Value: ${botValue}`);
+  });
   startGame();
 });
