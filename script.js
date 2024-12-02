@@ -173,13 +173,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const stand = document.getElementById("stand-container");
   stand.addEventListener("click", function () {
-    const { totalValue: botValue, aceCount } = calculateHandValue(botCards);
+    var { totalValue: botValue, aceCount } = calculateHandValue(botCards);
     const { totalValue: playerValue } = calculateHandValue(playerCards);
 
     while (botValue < 17) {
       const botHit = deck.pop();
       botCards.push(botHit);
-      const { totalValue: botValue, aceCount } = calculateHandValue(botCards);
+      var { totalValue: botValue } = calculateHandValue(botCards);
     }
     if (botValue === 17 && aceCount > 0) {
       const botHit = deck.pop();

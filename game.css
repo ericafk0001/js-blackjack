@@ -42,29 +42,35 @@
 }
 
 #stand-container {
+  background: none;
+  border: 0;
+}
+
+#stand {
   display: flex;
   align-items: center;
   flex-direction: column;
   width: 150px;
+  height: 213.417px;
   background: rgb(4, 80, 219);
   box-shadow: 0 0 16px rgb(0, 0, 0);
   border-radius: 5px;
   transition: all 0.2s;
 }
 
-#stand-container:hover {
+#stand:hover {
   box-shadow: 0 0 20px rgb(255, 0, 0);
 }
 
-#stand-container:active {
+#stand:active {
   opacity: 0.15;
 }
 
 #stand-container p {
   text-align: center;
-  margin-bottom: 1vh;
   font-weight: bold;
   font-size: 2rem;
+  color: #fff
 }
 
 #player-hand {
