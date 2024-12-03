@@ -17,6 +17,19 @@
     </div>
     -->
     <div id="game">
+      <p id="money">Money: <span>$100</span></p>
+      <div id="bet-container" style="display: none">
+        <p>How much do you want to bet?</p>
+        <div id="quick-bet">
+          <button class="bet-btns">$100</button>
+          <button class="bet-btns">$250</button>
+          <button class="bet-btns">$500</button>
+          <button class="bet-btns">$1000</button>
+          <button id="all-in">All In</button>
+        </div>
+        <label for="text">Amount: </label>
+        <input type="number" min="1" id="amount-input" />
+      </div>
       <div id="bot-hand"></div>
       <div id="actions">
         <div id="draw-deck-container">

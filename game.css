@@ -72,11 +72,12 @@
   bottom: 0;
   display: flex;
   justify-content: center;
+  margin-left: 6vw;
 }
 
 .player-hand-card {
   width: 140px;
-  margin-left: -20px;
+  margin-left: -95px;
   margin-bottom: 2vh;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.548);
   transition: all 0.1s;
@@ -90,7 +91,6 @@
   position: fixed;
   top: 0;
   display: flex;
-  justify-content: center;
 }
 
 .bot-hand-card {
@@ -99,4 +99,50 @@
   margin-top: 2vh;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.452);
   cursor: not-allowed;
+}
+
+#money {
+  position: fixed;
+  top: 3vh;
+  left: 3vw;
+  font-size: 22px;
+}
+
+#money span {
+  color: rgb(0, 255, 0);
+}
+
+#bet-container {
+  position: fixed;
+  color: black;
+  border-radius: 10px;
+  background-color: #fff;
+  width: 50vw;
+  height: 35vh;
+  z-index: 69;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#bet-container p {
+  font-size: 32px;
+}
+
+#bet-container label {
+  font-size: 24px;
+}
+
+.bet-btns {
+  padding: 10px 20px;
+}
+
+#all-in {
+  padding: 10px 20px;
+}
+
+#amount-input {
+  border-radius: 5px;
+  border-style: solid;
+  padding: 10px;
 }

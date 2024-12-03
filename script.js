@@ -14,6 +14,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  //game variables
+  let wallet = 100;
+  let playerCards = [];
+  let botCards = [];
+  let betNum;
+  //game constants
+  const drawDeck = document.getElementById("deck");
+  const stand = document.getElementById("stand-container");
+  const betBtns = document.querySelectorAll(".bet-btns");
+  const allInBtn = document.getElementById("all-in");
+  const betContainer = document.getElementById("bet-container");
+
+  betBtns.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      let betAmount = event.target.textContent.replace("$", "");
+      betNum = parseInt(betAmount);
+      console.log(betNum);
+      betContainer.style.display = "none";
+    });
+  });
+
+  allInBtn.addEventListener("click", function () {
+    betNum = wallet;
+    console.log(betNum);
+    betContainer.style.display = "none";
+  });
+
   let deck = [
     "2_of_hearts",
     "3_of_hearts",
@@ -102,13 +129,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     return { totalValue, aceCount };
   }
+
+  let botCardImg2;
   function startGame() {
     // const fadeScreen = document.getElementById("fade-screen");
     // fadeScreen.style.display = "block";
     // setTimeout(() => {
     //   fadeScreen.classList.add("fade-in");
     // }, 8);
-
+    betContainer.style.display = "block";
     // game logic
     const startingCard = deck.pop();
     const startingCard2 = deck.pop();
@@ -140,12 +169,6 @@ document.addEventListener("DOMContentLoaded", function () {
     botCards.push(botStartingCard2);
   }
 
-  //game variables
-  let wallet = 100;
-  let playerCards = [];
-  let botCards = [];
-  //game constants
-  const drawDeck = document.getElementById("deck");
   //hit
   drawDeck.addEventListener("click", function () {
     if (deck.length > 0) {
@@ -159,46 +182,41 @@ document.addEventListener("DOMContentLoaded", function () {
       playerCards.push(drawnCard);
       //calculate
       const { totalValue } = calculateHandValue(playerCards);
-      console.log(totalValue);
       if (totalValue > 21) {
-        alert("you lost lil bro quit gambling");
+        console.log("you lost lil bro quit gambling");
       } else if (totalValue === 21) {
-        alert("you win baby");
+        console.log("you win baby");
       }
     } else {
-      drawDeck.style.display = "none";
-      alert(" no mo cards ");
+      console.log(" no mo cards ");
     }
   });
 
-  const stand = document.getElementById("stand-container");
   stand.addEventListener("click", function () {
     var { totalValue: botValue, aceCount } = calculateHandValue(botCards);
     const { totalValue: playerValue } = calculateHandValue(playerCards);
 
     while (botValue < 17) {
       const botHit = deck.pop();
-      botCards.push(botHit);
-      var { totalValue: botValue, aceCount } = calculateHandValue(botCards);
-      
       const botHand = document.getElementById("bot-hand");
       const botCardImg = document.createElement("img");
       botCardImg.src = `cards/${botHit}.png`;
       botCardImg.classList.add("bot-hand-card");
       botHand.appendChild(botCardImg);
-      botCards.push(botHIt);
+      botCards.push(botHit);
+      var { totalValue: botValue, aceCount } = calculateHandValue(botCards);
     }
     if (botValue === 17 && aceCount > 0) {
       const botHit = deck.pop();
       botCards.push(botHit);
     } else if (botValue > 21) {
-      alert("yo u win thats so cool");
+      console.log("yo u win thats so cool");
     } else if (botValue > playerValue) {
-      alert("you lose broke bitch ass boy");
+      console.log("you lose broke bitch ass boy");
     } else if (botValue < playerValue) {
-      alert("yo u win this time (bot value is less than playervalue)");
+      console.log("yo u win this time (bot value is less than playervalue)");
     } else if (botValue === playerValue) {
-      alert("you get your money back lil bro cause u tied n shi");
+      console.log("you get your money back lil bro cause u tied n shi");
     }
     console.log(`Bot Value: ${botValue}`);
   });
