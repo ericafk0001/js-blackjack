@@ -128,6 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const botHand = document.getElementById("bot-hand");
     playerHand.innerHTML = "";
     botHand.innerHTML = "";
+    console.log(calculateHandValue(playerCards), calculateHandValue(botCards));
     startGame();
   }
 
@@ -176,6 +177,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // }, 8);
     betContainer.style.display = "flex";
     // game logic
+    botCards = [];
+    playerCards = [];
     const startingCard = deck.pop();
     const startingCard2 = deck.pop();
     const playerHand = document.getElementById("player-hand");
