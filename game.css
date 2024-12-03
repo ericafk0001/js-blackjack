@@ -112,7 +112,17 @@
   color: rgb(0, 255, 0);
 }
 
+#bet-display {
+  position: fixed;
+  top: 7vh;
+  left: 3vw;
+  font-size: 22px;
+}
+
 #bet-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: fixed;
   color: black;
   border-radius: 10px;
@@ -120,9 +130,7 @@
   width: 50vw;
   height: 35vh;
   z-index: 69;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 10px;
 }
 
 #bet-container p {
@@ -135,6 +143,10 @@
 
 .bet-btns {
   padding: 10px 20px;
+}
+
+#bet-span {
+  color: rgb(211, 21, 21);
 }
 
 #all-in {

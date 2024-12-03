@@ -15,29 +15,38 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   //game variables
-  let wallet = 100;
+  let wallet = 1000;
   let playerCards = [];
   let botCards = [];
   let betNum;
+
   //game constants
   const drawDeck = document.getElementById("deck");
   const stand = document.getElementById("stand-container");
   const betBtns = document.querySelectorAll(".bet-btns");
   const allInBtn = document.getElementById("all-in");
   const betContainer = document.getElementById("bet-container");
+  const moneyDisplay = document.getElementById("money-span");
+  const betDisplay = document.getElementById("bet-span");
 
   betBtns.forEach((button) => {
     button.addEventListener("click", (event) => {
       let betAmount = event.target.textContent.replace("$", "");
       betNum = parseInt(betAmount);
       console.log(betNum);
+      wallet -= betNum;
+      moneyDisplay.textContent = `$${wallet}`;
+      betDisplay.textContent = `$${betNum}`;
       betContainer.style.display = "none";
     });
   });
 
   allInBtn.addEventListener("click", function () {
+    betDisplay.textContent = `$${wallet}`;
     betNum = wallet;
     console.log(betNum);
+    wallet -= wallet;
+    moneyDisplay.textContent = `$${wallet}`;
     betContainer.style.display = "none";
   });
 
@@ -111,6 +120,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  function win() {
+    wallet += betNum * 2;
+    moneyDisplay.textContent = `$${wallet}`;
+    betDisplay.textContent = `No Bet`;
+    const playerHand = document.getElementById("player-hand");
+    const botHand = document.getElementById("bot-hand");
+    playerHand.innerHTML = "";
+    botHand.innerHTML = "";
+    startGame();
+  }
+
+  function lose() {
+    wallet -= betNum;
+    moneyDisplay.textContent = `$${wallet}`;
+    betDisplay.textContent = `No Bet`;
+    if (wallet > 1) {
+      const playerHand = document.getElementById("player-hand");
+      const botHand = document.getElementById("bot-hand");
+      playerHand.innerHTML = "";
+      botHand.innerHTML = "";
+      startGame();
+    } else {
+      console.log(
+        "your living the life of a computer science major now (homeless)"
+      );
+    }
+  }
+
   function calculateHandValue(hand) {
     let totalValue = 0;
     let aceCount = 0;
@@ -137,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // setTimeout(() => {
     //   fadeScreen.classList.add("fade-in");
     // }, 8);
-    betContainer.style.display = "block";
+    betContainer.style.display = "flex";
     // game logic
     const startingCard = deck.pop();
     const startingCard2 = deck.pop();
@@ -183,18 +220,19 @@ document.addEventListener("DOMContentLoaded", function () {
       //calculate
       const { totalValue } = calculateHandValue(playerCards);
       if (totalValue > 21) {
-        console.log("you lost lil bro quit gambling");
-      } else if (totalValue === 21) {
-        console.log("you win baby");
+        lose();
       }
     } else {
-      console.log(" no mo cards ");
+      alert(" no mo cards ");
     }
   });
 
   stand.addEventListener("click", function () {
     var { totalValue: botValue, aceCount } = calculateHandValue(botCards);
     const { totalValue: playerValue } = calculateHandValue(playerCards);
+    const botHand = document.getElementById("bot-hand");
+    const card = botHand.querySelector("img[src='card back red.png']");
+    card.src = `cards/${botCards[1]}.png`;
 
     while (botValue < 17) {
       const botHit = deck.pop();
@@ -210,15 +248,16 @@ document.addEventListener("DOMContentLoaded", function () {
       const botHit = deck.pop();
       botCards.push(botHit);
     } else if (botValue > 21) {
-      console.log("yo u win thats so cool");
+      win();
     } else if (botValue > playerValue) {
-      console.log("you lose broke bitch ass boy");
+      lose();
     } else if (botValue < playerValue) {
-      console.log("yo u win this time (bot value is less than playervalue)");
+      win();
     } else if (botValue === playerValue) {
-      console.log("you get your money back lil bro cause u tied n shi");
+      wallet += betNum;
+      moneyDisplay.textContent = `$${wallet}`;
+      betDisplay.textContent = `No Bet`;
     }
-    console.log(`Bot Value: ${botValue}`);
   });
   startGame();
 });
