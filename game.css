@@ -9,62 +9,42 @@
 #actions {
   display: flex;
   flex-direction: row;
-  gap: 2vw;
-}
-
-#draw-deck-container {
-  display: flex;
   align-items: center;
-  flex-direction: column;
+  gap: 36vw;
 }
 
-#draw-deck-container img {
-  width: 150px;
-  box-shadow: 0 0 16px rgb(0, 0, 0);
-  border-radius: 5px;
-  transition: all 0.2s;
-}
-
-#draw-deck-container img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 16px rgb(156, 156, 156);
-}
-
-#draw-deck-container img:active {
-  opacity: 0.15;
-}
-
-#draw-deck-container p {
-  text-align: center;
-  margin-bottom: 1vh;
-  font-weight: bold;
+#deck {
   font-size: 2rem;
+  border-style: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  color: white;
+  background: rgb(39, 87, 245);
+  cursor: pointer;
+  box-shadow: 0 0 15px rgb(27, 27, 27);
+  width: 13vw;
+  transition: all 0.3s;
 }
 
-#stand-container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 150px;
-  background: rgb(4, 80, 219);
-  box-shadow: 0 0 16px rgb(0, 0, 0);
-  border-radius: 5px;
-  transition: all 0.2s;
+#deck:hover {
+  transform: scale(0.9);
 }
 
-#stand-container:hover {
-  box-shadow: 0 0 20px rgb(255, 0, 0);
-}
-
-#stand-container:active {
-  opacity: 0.15;
-}
-
-#stand-container p {
-  text-align: center;
-  margin-bottom: 1vh;
-  font-weight: bold;
+#stand {
   font-size: 2rem;
+  border-style: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  color: white;
+  background: rgb(11, 165, 11);
+  cursor: pointer;
+  box-shadow: 0 0 15px rgb(27, 27, 27);
+  width: 13vw;
+  transition: all 0.3s;
+}
+
+#stand:hover {
+  transform: scale(0.9);
 }
 
 #player-hand {

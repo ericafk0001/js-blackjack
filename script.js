@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const singleplayerBtn = document.getElementById("singleplayer-btn");
   const gameContainer = document.getElementById("game");
   const drawDeck = document.getElementById("deck");
-  const stand = document.getElementById("stand-container");
+  const stand = document.getElementById("stand");
   const betBtns = document.querySelectorAll(".bet-btns");
   const allInBtn = document.getElementById("all-in");
   const betContainer = document.getElementById("bet-container");
@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function startGame() {
     betContainer.style.display = "flex";
     console.log(deck.length);
-    if (deck.length > 10) {
+    if (deck.length >= 10) {
       // game logic
       shuffleDeck(deck);
       botCards = [];

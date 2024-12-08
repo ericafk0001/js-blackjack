@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="main-menu">
-      <h1>Black Jack</h1>
+      <h1>BlackJack</h1>
       <button id="singleplayer-btn">Singleplayer</button>
       <button id="multiplayer-btn" class="disabled">Multiplayer (WIP)</button>
     </div>
@@ -23,7 +23,7 @@
         <button id="play-again-btn">Play Again</button>
       </div>
       <div id="bet-container" style="display: none">
-        <p>How much do you want to bet?</p>
+        <p>How much would you like to bet?</p>
         <div id="quick-bet">
           <button class="bet-btns">$100</button>
           <button class="bet-btns">$250</button>
@@ -32,7 +32,7 @@
           <button id="all-in">All In</button>
         </div>
         <div id="custom-bet">
-          <label for="text">Amount: </label>
+          <label for="text">Custom Bet: </label>
           <input type="number" min="1" id="amount-input" />
           <button id="amount-input-submit">Submit</button>
         </div>
@@ -40,13 +40,9 @@
       <div id="bot-hand"></div>
       <div id="actions">
         <div id="draw-deck-container">
-          <p>Hit</p>
-          <img src="card back red.png" id="deck" />
+          <button id="deck">Hit</button>
         </div>
-        <button id="stand-container">
-          <p>Stand</p>
-          <div id="stand"></div>
-        </button>
+        <button id="stand">Stand</button>
       </div>
       <div id="player-hand"></div>
     </div>
