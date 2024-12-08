@@ -17,13 +17,13 @@
   font-size: 2rem;
   border-style: none;
   border-radius: 8px;
-  padding: 10px 20px;
+  padding: 16px 20px;
   color: white;
-  background: rgb(39, 87, 245);
+  background: rgb(42, 126, 253);
   cursor: pointer;
   box-shadow: 0 0 15px rgb(27, 27, 27);
   width: 13vw;
-  transition: all 0.3s;
+  transition: all 0.15s;
 }
 
 #deck:hover {
@@ -34,13 +34,13 @@
   font-size: 2rem;
   border-style: none;
   border-radius: 8px;
-  padding: 10px 20px;
+  padding: 16px 20px;
   color: white;
   background: rgb(11, 165, 11);
   cursor: pointer;
   box-shadow: 0 0 15px rgb(27, 27, 27);
   width: 13vw;
-  transition: all 0.3s;
+  transition: all 0.15s;
 }
 
 #stand:hover {
