@@ -63,10 +63,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   betSubmit.addEventListener("click", function () {
-    betAmount = parseInt(betInput.value);
-    if (betAmount > 0 && betAmount <= wallet) {
-      wallet -= betAmount;
-      betDisplay.textContent = `$${betAmount}`;
+    betNum = parseInt(betInput.value);
+    if (betNum > 0 && betNum <= wallet) {
+      wallet -= betNum;
+      betDisplay.textContent = `$${betNum}`;
       moneyDisplay.textContent = `$${wallet}`;
       betContainer.style.display = "none";
     } else {
