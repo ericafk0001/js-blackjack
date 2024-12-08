@@ -256,6 +256,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(deck.length);
     if (deck.length > 10) {
       // game logic
+      shuffleDeck(deck);
       botCards = [];
       playerCards = [];
       const startingCard = deck.pop();
