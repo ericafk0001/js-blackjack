@@ -8,17 +8,20 @@
     <link rel="stylesheet" href="game.css" />
   </head>
   <body>
-    <!--
-    <div id="fade-screen"></div>
     <div id="main-menu">
       <h1>Black Jack</h1>
       <button id="singleplayer-btn">Singleplayer</button>
-      <button id="multiplayer-btn" class="disabled">Multiplayer</button>
+      <button id="multiplayer-btn" class="disabled">Multiplayer (WIP)</button>
     </div>
-    -->
-    <div id="game">
+    <div id="game" style="display: none">
       <p id="money">Money: <span id="money-span">$1000</span></p>
       <p id="bet-display">Bet Amount: <span id="bet-span">No Bet</span></p>
+      <div id="lose-container" style="display: none">
+        <p>
+          your living the life of a computer science major now :3 (homeless)
+        </p>
+        <button id="play-again-btn">Play Again</button>
+      </div>
       <div id="bet-container" style="display: none">
         <p>How much do you want to bet?</p>
         <div id="quick-bet">
@@ -28,8 +31,11 @@
           <button class="bet-btns">$1000</button>
           <button id="all-in">All In</button>
         </div>
-        <label for="text">Amount: </label>
-        <input type="number" min="1" id="amount-input" />
+        <div id="custom-bet">
+          <label for="text">Amount: </label>
+          <input type="number" min="1" id="amount-input" />
+          <button id="amount-input-submit">Submit</button>
+        </div>
       </div>
       <div id="bot-hand"></div>
       <div id="actions">

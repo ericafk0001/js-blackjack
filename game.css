@@ -112,6 +112,45 @@
   color: rgb(0, 255, 0);
 }
 
+#lose-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  color: black;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(204, 46, 46);
+  border-width: 3px;
+  background-color: #f8f8f8;
+  width: 50vw;
+  height: 35vh;
+  z-index: 420;
+  padding: 10px;
+}
+
+#lose-container p {
+  font-size: 28px;
+  text-align: center;
+  margin-top: 36px;
+  margin-bottom: 36px;
+}
+
+#play-again-btn {
+  padding: 20px 40px;
+  border-style: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 26px;
+  background-color: rgb(221, 33, 33);
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+#play-again-btn:hover {
+  opacity: 0.9;
+}
+
 #bet-display {
   position: fixed;
   top: 7vh;
@@ -126,7 +165,7 @@
   position: fixed;
   color: black;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: #f8f8f8;
   width: 50vw;
   height: 35vh;
   z-index: 69;
@@ -153,8 +192,16 @@
   padding: 10px 20px;
 }
 
+#custom-bet {
+  margin-top: 3vh;
+}
+
 #amount-input {
   border-radius: 5px;
   border-style: solid;
   padding: 10px;
+}
+
+#amount-input-submit {
+  padding: 10px 20px;
 }
