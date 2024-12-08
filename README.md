@@ -47,7 +47,8 @@ $ git clone https://github.com/ericafk0001/js-blackjack
 # Access
 $ cd js-blackjack
 
-# Open index.html
+# Local View
+open index.html
 ```
 
 ## :memo: License
