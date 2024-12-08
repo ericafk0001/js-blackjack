@@ -218,8 +218,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function lose() {
-    wallet -= betNum;
-    moneyDisplay.textContent = `$${wallet}`;
     betDisplay.textContent = `No Bet`;
     if (wallet > 1) {
       const playerHand = document.getElementById("player-hand");
