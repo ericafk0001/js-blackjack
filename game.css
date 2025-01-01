@@ -3,14 +3,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 2vh 0;
 }
 
 #actions {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 36vw;
+  gap: clamp(20vw, 25vw, 36vw);
+  margin: 2vh 0;
 }
 
 #deck {
@@ -43,24 +45,29 @@
   transition: all 0.15s;
 }
 
+#deck,
+#stand {
+  font-size: clamp(1.2rem, 1.8vw, 2rem);
+  padding: clamp(12px, 1.5vw, 16px) clamp(16px, 2vw, 20px);
+  width: clamp(120px, 13vw, 200px);
+}
+
 #stand:hover {
   transform: scale(0.9);
 }
 
 #player-hand {
   position: fixed;
-  bottom: 0;
+  bottom: 2vh;
   display: flex;
   justify-content: center;
-  margin-left: 6vw;
+  margin-left: 4vw;
 }
 
-.player-hand-card {
-  width: 140px;
-  margin-left: -95px;
-  margin-bottom: 2vh;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.548);
-  transition: all 0.1s;
+.player-hand-card,
+.bot-hand-card {
+  width: clamp(100px, 10vw, 140px);
+  margin-left: -4vw;
 }
 
 .player-hand-card:hover {
@@ -69,12 +76,12 @@
 
 #bot-hand {
   position: fixed;
-  top: 0;
+  top: 2vh;
   display: flex;
+  margin-left: 4vw;
 }
 
 .bot-hand-card {
-  width: 140px;
   margin-left: 8px;
   margin-top: 2vh;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.452);
@@ -146,10 +153,11 @@
   color: black;
   border-radius: 10px;
   background-color: #f8f8f8;
-  width: 50vw;
-  height: 35vh;
+  width: clamp(300px, 50vw, 600px);
+  height: auto;
+  min-height: 35vh;
+  padding: 2vh 2vw;
   z-index: 69;
-  padding: 10px;
 }
 
 #bet-container p {
